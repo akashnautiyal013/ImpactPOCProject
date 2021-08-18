@@ -1,10 +1,16 @@
 # ImpactPOCProject
 POC
- To run IOS app Please clone project 
+ To run IOS app clone project 
+ 
  cd ImpactPOCProject/,  
+ 
  npm install , 
+ 
  cd ios/ ,
- pod install, 
+ 
+ pod install,
+ 
  cd ../,
+ 
  npm run ios
  
