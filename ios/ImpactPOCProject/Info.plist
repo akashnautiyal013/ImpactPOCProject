@@ -35,6 +35,14 @@
 			</dict>
 		</dict>
 	</dict>
+  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+  <string>This is needed to get location updates in the background</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>This is needed to get location updates when in use</string>
+  <key>UIBackgroundModes</key>
+  <array>
+    <string>location</string>
+  </array>
 	<key>UILaunchStoryboardName</key>
 	<string>SplashScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
