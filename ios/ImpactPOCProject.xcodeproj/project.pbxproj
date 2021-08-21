@@ -16,6 +16,10 @@
 		38948AE826CBF4A400827B9B /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38948AE726CBF4A400827B9B /* LocationTableViewCell.swift */; };
 		38948AEA26CBF4CC00827B9B /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38948AE926CBF4CC00827B9B /* HomeView.storyboard */; };
 		38948AEC26CBF82E00827B9B /* HomeNativeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38948AEB26CBF82E00827B9B /* HomeNativeView.m */; };
+		38EAD5C726CCF1660095E5BE /* LocationModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD5C626CCF1660095E5BE /* LocationModule.m */; };
+		38EAD5CA26D0EA8F0095E5BE /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD5C926D0EA8F0095E5BE /* EventEmitter.swift */; };
+		38EAD5CC26D0EB310095E5BE /* ReactNativeEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD5CB26D0EB310095E5BE /* ReactNativeEventEmitter.m */; };
+		38EAD5CE26D0EB580095E5BE /* ReactNativeEventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EAD5CD26D0EB580095E5BE /* ReactNativeEventEmitter.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		96905EF65AED1B983A6B3ABC /* libPods-ImpactPOCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-ImpactPOCProject.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
@@ -36,6 +40,11 @@
 		38948AE726CBF4A400827B9B /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		38948AE926CBF4CC00827B9B /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		38948AEB26CBF82E00827B9B /* HomeNativeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeNativeView.m; sourceTree = "<group>"; };
+		38EAD5C626CCF1660095E5BE /* LocationModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationModule.m; sourceTree = "<group>"; };
+		38EAD5C826CCF1760095E5BE /* LocationModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationModule.h; sourceTree = "<group>"; };
+		38EAD5C926D0EA8F0095E5BE /* EventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
+		38EAD5CB26D0EB310095E5BE /* ReactNativeEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeEventEmitter.m; sourceTree = "<group>"; };
+		38EAD5CD26D0EB580095E5BE /* ReactNativeEventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeEventEmitter.swift; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-ImpactPOCProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImpactPOCProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-ImpactPOCProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImpactPOCProject.debug.xcconfig"; path = "Target Support Files/Pods-ImpactPOCProject/Pods-ImpactPOCProject.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-ImpactPOCProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImpactPOCProject.release.xcconfig"; path = "Target Support Files/Pods-ImpactPOCProject/Pods-ImpactPOCProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +102,11 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				38EAD5CD26D0EB580095E5BE /* ReactNativeEventEmitter.swift */,
+				38EAD5CB26D0EB310095E5BE /* ReactNativeEventEmitter.m */,
+				38EAD5C926D0EA8F0095E5BE /* EventEmitter.swift */,
+				38EAD5C826CCF1760095E5BE /* LocationModule.h */,
+				38EAD5C626CCF1660095E5BE /* LocationModule.m */,
 				38948AEB26CBF82E00827B9B /* HomeNativeView.m */,
 				38948AE926CBF4CC00827B9B /* HomeView.storyboard */,
 				38948AE726CBF4A400827B9B /* LocationTableViewCell.swift */,
@@ -288,11 +302,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38EAD5CC26D0EB310095E5BE /* ReactNativeEventEmitter.m in Sources */,
 				38948AEC26CBF82E00827B9B /* HomeNativeView.m in Sources */,
+				38EAD5CA26D0EA8F0095E5BE /* EventEmitter.swift in Sources */,
+				38EAD5C726CCF1660095E5BE /* LocationModule.m in Sources */,
 				38948AE426CBF40900827B9B /* HomeView.swift in Sources */,
 				38948AE826CBF4A400827B9B /* LocationTableViewCell.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				38948AE626CBF45C00827B9B /* ViewController.swift in Sources */,
+				38EAD5CE26D0EB580095E5BE /* ReactNativeEventEmitter.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

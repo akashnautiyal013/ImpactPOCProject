@@ -16,6 +16,7 @@
 //RCT_EXPORT_MODULE(HomeNativeView);
 RCT_EXTERN_METHOD(showNativeController:(NSString *)data)
 RCT_EXTERN_METHOD(setLocation:(NSNumber *)lat longt:(NSNumber *)longt speed:(NSNumber *)speed)
+RCT_EXTERN_METHOD(getName: (RCTResponseSenderBlock *)successCallback)
 @end
 
 

@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState,useEffect, Component} from 'react';
-import { StyleSheet, Text, View, NativeModules,Platform, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, NativeModules,Platform, TouchableOpacity,DeviceEventEmitter, NativeEventEmitter, } from 'react-native';
 import * as Location from 'expo-location';
 import * as TaskManager from 'expo-task-manager';
 // import RNLocation from 'react-native-location';
+import StoreView from './StoreViewController' 
 const {HomeNativeView} = NativeModules;
 import SQlite from 'react-native-sqlite-storage'
 const db = SQlite.openDatabase({
@@ -17,12 +18,14 @@ error => {console.log(error)}
 
 
 
-
-
-
 export default function App() {
 
+  const emitter = Platform.OS === 'ios' ? new NativeEventEmitter(NativeModules.ReactNativeEventEmitter) : DeviceEventEmitter
+  const listener = emitter.addListener("Test", () =>
+    console.log("fired test event")
+  )
 
+  
 
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -46,10 +49,15 @@ export default function App() {
       // check `error.message` for more details.
       return;
     }
+    // HomeNativeView.setLocation(12123.0213123,1232.2323423,1.2)
+    
     console.log('Received new locations', locations);
+
+    
   })
 
   useEffect(() => {
+    
     // HomeNativeView.showNativeController("native")
     // startLocation()
     
@@ -67,15 +75,20 @@ export default function App() {
       let location = await Location.startLocationUpdatesAsync("LocationTask",{
           accuracy: Location.Accuracy.BestForNavigationcd
        })
-     
+      
       console.log("LocatioPOint", location)
       setLocation(location);
       
-      // HomeNativeView.setLocation(12123.0213123,1232.2323423,1.2)
+      
 
       
     })();
-    
+
+    // HomeNativeView.callbackFunction(10,(ids)=>{
+    //   console.log("ids",ids)
+    // })
+
+    // HomeNativeView.showNativeController("native")
   },[])
 
   // useEffect(()=>{
@@ -93,6 +106,12 @@ export default function App() {
 
   const loadNativeView = () => {
      if (Platform.OS == "ios" ){
+
+      HomeNativeView.getName(function(result) {
+        var hwAnswer = "swiftCB: " + result;
+        console.log(hwAnswer);
+        return hwAnswer;
+     })
       HomeNativeView.showNativeController("native")
       
        // NativeHomeView.showNativeController("Native",50.0)
@@ -103,9 +122,10 @@ export default function App() {
     <View style={styles.container}>
       <TouchableOpacity onPress = {()=> {
         loadNativeView()
-      }}><Text>Press Mee</Text></TouchableOpacity>
-      <Text>Open up App.js to start working on your app!</Text>
+      }}><Text>Press Me</Text></TouchableOpacity>
       <StatusBar style="auto" />
+      {/* <StoreView/> */}
+     
     </View>
   );
 }
@@ -116,5 +136,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  flatList: {
+    flex: 1,
+    backgroundColor: '#fff',
   },
 });

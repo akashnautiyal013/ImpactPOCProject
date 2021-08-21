@@ -1,5 +1,6 @@
 import UIKit
 import MapKit
+import CoreFoundation
 
 struct LocationPoint: Codable {
   var lat: Double?
@@ -17,10 +18,23 @@ struct LocationPoint: Codable {
 }
 
 
+protocol listViewDelegate {
+  func reload()
+}
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, CLLocationManagerDelegate , MKMapViewDelegate{
+
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, CLLocationManagerDelegate , MKMapViewDelegate,RCTBridgeModule{
+  
+  
+  static func moduleName() -> String! {
+    return "ViewController"
+  }
+  
+  var co = HomeNativeView()
+  
   let locationManager = CLLocationManager()
   var locationsP = [LocationPoint]()
+ 
   var previousLoc :CLLocationCoordinate2D?
     @IBOutlet weak var mapView: MKMapView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +57,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    ReactNativeEventEmitter.emitter?.sendEvent(withName: "Test", body:[])
+//    EventEmitter.sharedInstance.dispatch(name: "Test", body: "Hello")
+    co.consolelog()
   }
   
   
@@ -106,7 +126,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
   }
   
-    @IBOutlet weak var tableView: UITableView!
+   @objc @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textView: UILabel!
     @IBOutlet weak var mapVIew: MKMapView!
     var data = "default"
@@ -141,6 +161,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     self.previousLoc = locValue
       print("locations = \(locValue.latitude) \(locValue.longitude)")
+    
   }
 
     /*
