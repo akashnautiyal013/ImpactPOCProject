@@ -115,6 +115,12 @@ export default function App() {
       HomeNativeView.showNativeController("native")
       
        // NativeHomeView.showNativeController("Native",50.0)
+     } else if(Platform.OS == "android"){
+       console.log("Pressed from android!!")
+
+       var OpenActivity=NativeModules.OpenActivity
+
+       OpenActivity.open();
      }
   }
 
@@ -122,9 +128,9 @@ export default function App() {
     <View style={styles.container}>
       <TouchableOpacity onPress = {()=> {
         loadNativeView()
-      }}><Text>Press Me</Text></TouchableOpacity>
+      }}><Text style={styles.txtStyle}>Press Me</Text></TouchableOpacity>
       <StatusBar style="auto" />
-      {/* <StoreView/> */}
+      {<StoreView/> }
      
     </View>
   );
@@ -141,4 +147,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  txtStyle:{
+    height: 20,
+    width:120,
+    marginTop: 100,
+  }
 });
